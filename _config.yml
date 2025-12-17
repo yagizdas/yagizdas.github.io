@@ -1,3 +1,14 @@
-theme: jekyll-theme-minimal
-title: Yagiz Daskiran
-description: Testing stuff out
+# Y2K Personal Website Configuration
+title: "Yagiz's Y2K Homepage 🌟"
+description: "A nostalgic trip back to the early 2000s internet era"
+author: Yagiz Daskiran
+url: "https://yagizdas.github.io"
+
+# Build settings
+markdown: kramdown
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - .git
+  - .gitignore

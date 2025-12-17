@@ -1,0 +1,865 @@
+/* ========================================
+   Y2K Personal Website - Styles
+   A nostalgic trip to early 2000s web design
+   ======================================== */
+
+/* CSS Variables for easy theming */
+:root {
+    --bg-primary: #1e90ff;
+    --bg-secondary: #ffffff;
+    --bg-window: #f0f0f0;
+    --border-color: #000;
+    --border-light: #fff;
+    --border-dark: #666;
+    --text-primary: #000000;
+    --text-light: #ffffff;
+    --accent-blue: #0000ff;
+    --accent-hover: #ff00ff;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --gradient-start: #00bfff;
+    --gradient-end: #1e90ff;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    font-family: "Comic Sans MS", "Trebuchet MS", "Arial", sans-serif;
+    background: #1e90ff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAKElEQVQYV2NkYGD4z4AEmBhIBKMKhw1YCBtAGTC4CuEJZxiFo+EFAMrWAwls/V0bAAAAAElFTkSuQmCC') repeat;
+    color: var(--text-primary);
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+}
+
+/* Starfield background */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Main container */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* ========================================
+   Header Styles
+   ======================================== */
+.header-bar {
+    background: linear-gradient(180deg, #ffff00 0%, #ff8800 100%);
+    border: 5px ridge #gold;
+    border-radius: 0;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 0px #000;
+    text-align: center;
+}
+
+.header-content h1 {
+    color: #ff0000;
+    font-size: 2.5em;
+    font-family: "Comic Sans MS", cursive;
+    text-shadow: 3px 3px 0px #000, -1px -1px 0px #fff;
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+    letter-spacing: 2px;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 
+                     2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.visitor-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #000;
+    color: #00ff00;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.counter-gif {
+    width: 20px;
+    height: 20px;
+    background: #00ff00;
+}
+
+#visitor-count {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   Navigation Bar
+   ======================================== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: #c0c0c0;
+    border: 3px outset #fff;
+    border-radius: 0;
+    padding: 5px;
+    margin-bottom: 15px;
+    box-shadow: none;
+}
+
+.nav-link {
+    padding: 8px 15px;
+    background: #ddd;
+    border: 2px outset #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 0;
+    transition: none;
+    cursor: pointer;
+    font-family: "Verdana", sans-serif;
+}
+
+.nav-link:hover {
+    background: #ffff00;
+    color: #ff0000;
+}
+
+.nav-link:active,
+.nav-link.active {
+    border-style: inset;
+    background: #00ff00;
+    color: #000;
+}
+
+/* ========================================
+   Content Layout
+   ======================================== */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 968px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        order: 2;
+    }
+    
+    .main-content {
+        order: 1;
+    }
+}
+
+/* ========================================
+   Sidebar & Widgets
+   ======================================== */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.widget {
+    background: #fff;
+    border: 3px ridge #808080;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 3px 3px 0px #000;
+    margin-bottom: 10px;
+}
+
+.widget-title {
+    background: #000080;
+    color: #ffff00;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Verdana", sans-serif;
+    border-bottom: 3px groove #808080;
+    text-transform: uppercase;
+}
+
+.widget-content {
+    padding: 15px;
+}
+
+.profile-pic {
+    width: 100%;
+    border: 3px solid var(--border-dark);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.link-list {
+    list-style: none;
+}
+
+.link-list li {
+    margin-bottom: 8px;
+}
+
+.link-list a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.link-list a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Winamp-style player */
+.winamp-player {
+    background: #000;
+    border: 2px solid #333;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.winamp-display {
+    background: #0a0a0a;
+    color: #00ff00;
+    padding: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    border-bottom: 1px solid #333;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.winamp-display marquee {
+    width: 100%;
+}
+
+.winamp-controls {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+    background: #1a1a1a;
+}
+
+.winamp-btn {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #00ff00;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.1s;
+}
+
+.winamp-btn:hover {
+    background: #3a3a3a;
+}
+
+.winamp-btn:active {
+    background: #1a1a1a;
+    border-style: inset;
+}
+
+/* Status widget */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.status-dot.online {
+    background: #00ff00;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.mood {
+    font-size: 14px;
+    color: #333;
+}
+
+.mood-text {
+    font-weight: bold;
+}
+
+/* ========================================
+   Main Content & Windows
+   ======================================== */
+.main-content {
+    min-height: 500px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.window {
+    background: #f0f0f0;
+    border: 3px outset #808080;
+    border-radius: 0;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 0px #000;
+    overflow: hidden;
+}
+
+.window-header {
+    background: #000080;
+    padding: 5px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+}
+
+.window-title {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+}
+
+.window-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.window-btn {
+    background: #c0c0c0;
+    border: 2px outset #fff;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    font-family: "MS Sans Serif", sans-serif;
+}
+
+.window-btn:hover {
+    background: #ddd;
+}
+
+.window-btn:active {
+    border-style: inset;
+}
+
+.window-content {
+    padding: 25px;
+    background: #fff;
+}
+
+.window-content h2 {
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    font-size: 24px;
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 8px;
+}
+
+.window-content h3 {
+    color: #333;
+    margin: 20px 0 10px;
+    font-size: 18px;
+}
+
+.window-content p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Announcement box */
+.announcement {
+    background: #ffff00;
+    border: 3px solid #ff0000;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 0;
+    font-weight: bold;
+    box-shadow: 3px 3px 0px #000;
+}
+
+/* ========================================
+   Skills Section
+   ======================================== */
+.skill-bars {
+    margin-top: 15px;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 18px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #0000ff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+    color: #ffff00;
+    font-size: 11px;
+    font-weight: bold;
+    transition: none;
+    box-shadow: none;
+}
+
+/* ========================================
+   Lists
+   ======================================== */
+.styled-list {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.styled-list li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.styled-list li::marker {
+    color: var(--accent-blue);
+}
+
+/* ========================================
+   Projects Section
+   ======================================== */
+.project-card {
+    background: #ffffff;
+    border: 3px double #000;
+    border-radius: 0;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: none;
+}
+
+.project-card:hover {
+    background: #ffffcc;
+    border-color: #ff0000;
+}
+
+.project-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+}
+
+.project-meta {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* ========================================
+   Blog Section
+   ======================================== */
+.blog-post {
+    background: #ffffff;
+    border: 2px solid #000;
+    border-left: 8px solid #ff0000;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 0;
+}
+
+.post-title {
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.read-more {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ========================================
+   Contact Form
+   ======================================== */
+.contact-form {
+    max-width: 500px;
+    margin: 25px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 2px inset #808080;
+    background: #fff;
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    border-radius: 0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.social-links {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #ccc;
+}
+
+.social-links h3 {
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #d4d0c8 100%);
+    border: 2px outset #dfdfdf;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.1s;
+}
+
+.social-link:hover {
+    background: linear-gradient(180deg, #e8e8e8 0%, #c0c0c0 100%);
+}
+
+.social-link:active {
+    border-style: inset;
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #c0c0c0;
+    border: 3px outset #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: none;
+    font-family: "Verdana", sans-serif;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.btn:hover {
+    background: #ffff00;
+    color: #ff0000;
+}
+
+.btn:active {
+    border-style: inset;
+    background: #aaa;
+    box-shadow: none;
+}
+
+.submit-btn {
+    background: linear-gradient(180deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border-color: #45a049;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(180deg, #45a049 0%, #3d8b40 100%);
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+    background: #d3d3d3;
+    border: 3px groove #808080;
+    border-radius: 0;
+    padding: 15px;
+    text-align: center;
+    box-shadow: none;
+}
+
+.footer-content p {
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.footer-note {
+    color: #666;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Blinking effect for retro feel */
+.blink {
+    background: #ff0000;
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Make blink tag work */
+blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Support center tag */
+center {
+    text-align: center;
+    display: block;
+}
+
+/* Marquee styling */
+marquee {
+    display: block;
+}
+
+/* ========================================
+   Scrollbar Styling (webkit)
+   ======================================== */
+::-webkit-scrollbar {
+    width: 18px;
+    height: 18px;
+}
+
+::-webkit-scrollbar-track {
+    background: #c0c0c0;
+    border: 2px groove #808080;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #808080;
+    border: 2px outset #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+::-webkit-scrollbar-corner {
+    background: #d4d0c8;
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 1.8em;
+    }
+    
+    .navbar {
+        flex-wrap: wrap;
+    }
+    
+    .nav-link {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    .window-content {
+        padding: 15px;
+    }
+    
+    .project-links,
+    .social-icons {
+        flex-direction: column;
+    }
+    
+    .btn,
+    .social-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.5em;
+    }
+    
+    .visitor-counter {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+}
+
+/* ========================================
+   Utilities & Animations
+   ======================================== */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Print styles */
+@media print {
+    #starfield,
+    .navbar,
+    .sidebar,
+    .footer {
+        display: none;
+    }
+    
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .window {
+        break-inside: avoid;
+    }
+}

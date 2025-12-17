@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yagiz's Personal Homepage - Welcome!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///38AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAH8AAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAB/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAH8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
+</head>
+<body>
+    <!-- Starfield background canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header with visitor counter -->
+        <header class="header-bar">
+            <div class="header-content">
+                <marquee behavior="alternate" scrollamount="5"><h1>✨ Welcome to Yagiz's Homepage ✨</h1></marquee>
+                <p style="font-size: 11px; color: #000;">~ Est. 2025 ~ Forever Under Construction ~</p>
+                <img src="data:image/gif;base64,R0lGODlhPAAYAPcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFZAAAACwAAAAAPAAYAAAI/wABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLMNuvss9BGK+201FZr7bXYZqvtttx26+234IYr7rjklmvuueimq+667Lbr7rvwxivvvPTWa++9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEcs8cQUV2zxxRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333XjnrffefPft99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvr/6q237vrrsMcu++y012777bjnrvvuvPfu++/ABy/88MQXb/zxyCev/PLMN+/889BHL/301Fdv/fXYZ6/99tx37/334Icv/vjkl2/++einr/767Lfv/vvwxy///PTXb//9+Oev//789+///wAMoAAHSMACGvCACEygAhfIwAY68IEQjKAEJ0jBClrwghjMoAY3yMEOevCDIAyhCEdIwhKa8IQoTKEKV8jCFrrwhTCMoQxnSMMa2vCGOMyhDnfIwx768IdADKIQh0jEIhrxiEhMohKXyMQmOvGJUIyiFKdIxSpa8YpYzKIWt8jFLnrxi2AMoxjHSMYymvGMaEyjGtfIxja68Y1wjKMc50jHOv8COtCBE3SgBS+IQQ168IMarKAHN0hCEp4QhSxs4Qtn2MIYxvCF/wMgDGdIQxrW8Ic2vCEOeejDHwJRiEI04hGRmMQlNrGJT4xiFK9IxStmMYtc7GIYv0jGMp4xjWts4xvnWMc89vGPgQykIAdJyEIa8pCITKQiF8nIRjrykZCMpCQnSclKWvKSmMykJjfJyU568pOgDKUoR0nKUprylKhMpSpXycpWuvKVsIylLGdJy1ra8pa4zKUud8nLXvryl8AMpjCHScxiGvOYyEymMpfJzGY685nQjKY0p0nNalrzmt/M5ja3yc1uevOb4AynOMdJznKa85zolOc87UnPetqznuqs5z3xmc99/vOfOczgPwEK0HgGVKAELWhB/WnQgx4UoQpdaEL3edCEMrSfC3VoQx/60HpGdKL9rOhFMRrRi/4zpBsVaUg5OlKSnpSkKTVpSlW6Upa21KUufSlMYyrTmdK0pja9KU5zqtOd8rSnPv2pT4Eq1KEGlagPdSlSiyrgpTrVqU+FqlSlSuCpWvWqWM2qVrfK1a569atgDatYx0rWspr1rGhNq1rXyta2uvWtcI2rXOdK17ra9a54zate98rXvvr1r4ANrGAHS9jCGvawiE2sYhfL2MY69rGQjaxkJ0vZylr2spjNrGY3y9nOevaz/6ANrWhHS9rSmva0qE2talfL2ta69rWwja1sZ0vb2tr2tri9bW53y9ve+va3wA2ucIdL3OIa97jITa5yl8vc5jr3udCNrnSna13rWve62M2udrfL3e5697vgDa94x0ve8pr3vOhNr3rXy972uve98I2vfOdL3/ra9774za9++8vf/vr3vwAOsIAHTOACG/jACE6wghfM4AY7+MEQjrCEJ0zhClv4whjOsIY3zOEOe/jDIA6xiEc84u4BBAAA7") alt="Under Construction" style="max-width: 60px; margin: 5px auto; display: block;">
+                <div class="visitor-counter">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="counter" class="blink" width="10" height="10">
+                    <span id="visitor-count">000042</span> visitors
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About Me</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Main content area -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3 class="widget-title">About Me</h3>
+                    <div class="widget-content">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23333' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' dy='.3em' fill='%23fff'%3E👨‍💻%3C/text%3E%3C/svg%3E" alt="Profile" class="profile-pic">
+                        <p>Hey! I'm Yagiz, a developer who appreciates the simpler times of the web.</p>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Quick Links</h3>
+                    <div class="widget-content">
+                        <ul class="link-list">
+                            <li><a href="https://github.com/yagizdas" target="_blank">🔗 GitHub</a></li>
+                            <li><a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a></li>
+                            <li><a href="mailto:contact@example.com">📧 Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Now Playing 🎵</h3>
+                    <div class="widget-content">
+                        <div class="winamp-player">
+                            <div class="winamp-display">
+                                <marquee scrollamount="2">♪ Coding Playlist - Lo-Fi Beats ♪</marquee>
+                            </div>
+                            <div class="winamp-controls">
+                                <button class="winamp-btn">⏮</button>
+                                <button class="winamp-btn">▶</button>
+                                <button class="winamp-btn">⏸</button>
+                                <button class="winamp-btn">⏹</button>
+                                <button class="winamp-btn">⏭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Status</h3>
+                    <div class="widget-content">
+                        <div class="status-indicator">
+                            <span class="status-dot online"></span>
+                            <span>Available for work</span>
+                        </div>
+                        <div class="mood">
+                            Mood: <span class="mood-text">😎 Vibing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Web Ring</h3>
+                    <div class="widget-content" style="text-align: center; font-size: 11px;">
+                        <p>← <a href="#">Previous</a> | <a href="#">Random</a> | <a href="#">Next</a> →</p>
+                        <p style="margin-top: 8px;"><strong>Cool Developers Ring</strong></p>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Guestbook</h3>
+                    <div class="widget-content">
+                        <p style="font-size: 12px;">Sign my guestbook!</p>
+                        <button class="btn" style="width: 100%; margin-top: 5px; font-size: 11px;">Sign Here</button>
+                        <p style="font-size: 10px; margin-top: 8px; color: #666;">Latest: "Cool site!" - John</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main content -->
+            <main class="main-content">
+                <!-- Home Section -->
+                <section id="home" class="section active">
+                    <div class="window">
+                        <div class="window-header">
+                            <span class="window-title">WELCOME.TXT</span>
+                            <div class="window-controls">
+                                <span class="window-btn">_</span>
+                                <span class="window-btn">□</span>
+                                <span class="window-btn">X</span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <center>
+                                <h2>👋 Welcome to my digital space!</h2>
+                                <marquee scrollamount="3" width="80%">*** NEW CONTENT ADDED WEEKLY *** CHECK BACK OFTEN ***</marquee>
+                            </center>
+                            <p>You've stumbled upon my personal corner of the internet, built with the aesthetic of a simpler web era.</p>
+                            <p>This site is a throwback to when websites had personality, guestbooks were a thing, and under construction GIFs roamed free.</p>
+                            <table border="2" cellpadding="8" cellspacing="0" width="100%" bgcolor="#ffffe0" style="margin: 15px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <strong>📢 LATEST UPDATE:</strong><br>
+                                        Site launched on December 17, 2025!<br>
+                                        <blink>MORE UPDATES COMING SOON!</blink>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <center>
+                                <p><img src="data:image/gif;base64,R0lGODlhEAAQAMQfAP////7+/vn5+fX19fHx8e3t7enp6eXl5eHh4d3d3dnZ2dXV1dHR0c3NzcnJycXFxcHBwb29vbm5ubW1tbGxsa2trampqaWlpaGhoZ2dnZmZmZWVlZGRkY2NjYmJiYWFhSH5BAEAAAAALAAAAAAQABAAAAVaICCOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJiiEAOw==" width="16" height="16"> Best viewed at 1024x768 <img src="data:image/gif;base64,R0lGODlhEAAQAMQfAP////7+/vn5+fX19fHx8e3t7enp6eXl5eHh4d3d3dnZ2dXV1dHR0c3NzcnJycXFxcHBwb29vbm5ubW1tbGxsa2trampqaWlpaGhoZ2dnZmZmZWVlZGRkY2NjYmJiYWFhSH5BAEAAAAALAAAAAAQABAAAAVaICCOZGmeaKqubOu+cCzPdG3feK7vfO//wKBwSCwaj8ikcslsOp/QqHRKrVqv2Kx2y+16v+CweEwum8/otHrNbrvf8Lh8Tq/b7/i8fs/v+/+AgYKDhIWGh4iJiiEAOw==" width="16" height="16"></p>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="window">
+                        <div class="window-header">
+                            <span class="window-title">MY_SKILLS.HTM</span>
+                            <div class="window-controls">
+                                <span class="window-btn">_</span>
+                                <span class="window-btn">□</span>
+                                <span class="window-btn">X</span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <h3>💻 Tech Stack</h3>
+                            <p><i>* Skill levels may vary, results not guaranteed</i></p>
+                            <div class="skill-bars">
+                                <div class="skill-item">
+                                    <span class="skill-name">JavaScript/TypeScript</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 90%">90%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Python</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%">85%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">Web Development</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 95%">95%</div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name">System Design</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 80%">80%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="margin-top: 15px; font-size: 11px; color: #666;"><b>Note:</b> Stats calculated using advanced algorithms (aka I guessed)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="section">
+                    <div class="window">
+                        <div class="window-header">
+                            <span class="window-title">about_me.doc</span>
+                            <div class="window-controls">
+                                <span class="window-btn">_</span>
+                                <span class="window-btn">□</span>
+                                <span class="window-btn">×</span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <h2>📖 About Me</h2>
+                            <p>I'm a software developer passionate about creating meaningful digital experiences. While I appreciate modern web technologies, there's something special about the creativity and personality of early 2000s web design.</p>
+                            <p>This website is a tribute to that era - when the web was weird, wonderful, and wonderfully personal.</p>
+                            
+                            <h3>🎯 What I Do</h3>
+                            <ul class="styled-list">
+                                <li>Full-stack web development</li>
+                                <li>Building scalable systems</li>
+                                <li>Creating developer tools</li>
+                                <li>Writing about tech</li>
+                            </ul>
+
+                            <h3>🎨 Interests</h3>
+                            <ul class="styled-list">
+                                <li>Retro computing & web archaeology</li>
+                                <li>Open source contributions</li>
+                                <li>UI/UX design</li>
+                                <li>Coffee & coding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="section">
+                    <div class="window">
+                        <div class="window-header">
+                            <span class="window-title">projects.folder</span>
+                            <div class="window-controls">
+                                <span class="window-btn">_</span>
+                                <span class="window-btn">□</span>
+                                <span class="window-btn">×</span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <h2>🚀 Projects</h2>
+                            
+                            <div class="project-card">
+                                <h3>📁 Project Alpha</h3>
+                                <p class="project-meta">Language: JavaScript • Year: 2024</p>
+                                <p>A modern web application built with vanilla JavaScript and retro aesthetics. Features include real-time updates and a nostalgic UI.</p>
+                                <div class="project-links">
+                                    <a href="#" class="btn">View Demo</a>
+                                    <a href="#" class="btn">Source Code</a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3>📁 DevTools Collection</h3>
+                                <p class="project-meta">Language: Python • Year: 2024</p>
+                                <p>A collection of developer productivity tools and utilities. Built for developers who appreciate efficiency.</p>
+                                <div class="project-links">
+                                    <a href="#" class="btn">Learn More</a>
+                                    <a href="#" class="btn">Source Code</a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3>📁 RetroAPI</h3>
+                                <p class="project-meta">Language: TypeScript • Year: 2023</p>
+                                <p>RESTful API with a focus on simplicity and developer experience. Documentation styled like old-school tech manuals.</p>
+                                <div class="project-links">
+                                    <a href="#" class="btn">Documentation</a>
+                                    <a href="#" class="btn">Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Blog Section -->
+                <section id="blog" class="section">
+                    <div class="window">
+                        <div class="window-header">
+                            <span class="window-title">blog_entries.html</span>
+                            <div class="window-controls">
+                                <span class="window-btn">_</span>
+                                <span class="window-btn">□</span>
+                                <span class="window-btn">×</span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <h2>📝 Blog</h2>
+                            
+                            <article class="blog-post">
+                                <h3 class="post-title">Building a Y2K Website in 2025</h3>
+                                <p class="post-meta">📅 December 17, 2025 • ⏱️ 5 min read</p>
+                                <p>Why I decided to bring back the aesthetic of early 2000s web design and what we can learn from that era's approach to the web...</p>
+                                <a href="#" class="read-more">Read more →</a>
+                            </article>
+
+                            <article class="blog-post">
+                                <h3 class="post-title">The Lost Art of Personal Websites</h3>
+                                <p class="post-meta">📅 December 10, 2025 • ⏱️ 7 min read</p>
+                                <p>Before social media dominated our online presence, personal websites were how we expressed ourselves. Here's why they still matter...</p>
+                                <a href="#" class="read-more">Read more →</a>
+                            </article>
+
+                            <article class="blog-post">
+                                <h3 class="post-title">Vanilla JS is Underrated</h3>
+                                <p class="post-meta">📅 December 3, 2025 • ⏱️ 6 min read</p>
+                                <p>Not every project needs a framework. Sometimes, vanilla JavaScript is all you need to build something awesome...</p>
+                                <a href="#" class="read-more">Read more →</a>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="section">
+                    <div class="window">
+                        <div class="window-header">
+                            <span class="window-title">contact.form</span>
+                            <div class="window-controls">
+                                <span class="window-btn">_</span>
+                                <span class="window-btn">□</span>
+                                <span class="window-btn">×</span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <h2>📬 Get in Touch</h2>
+                            <p>Want to collaborate, chat about tech, or just say hi? Drop me a message!</p>
+                            
+                            <form class="contact-form" onsubmit="return handleSubmit(event)">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea id="message" name="message" rows="6" required></textarea>
+                                </div>
+                                <button type="submit" class="btn submit-btn">Send Message</button>
+                            </form>
+
+                            <div class="social-links">
+                                <h3>Or find me on:</h3>
+                                <div class="social-icons">
+                                    <a href="https://github.com/yagizdas" target="_blank" class="social-link">GitHub</a>
+                                    <a href="#" target="_blank" class="social-link">LinkedIn</a>
+                                    <a href="#" target="_blank" class="social-link">Twitter</a>
+                                    <a href="mailto:contact@example.com" class="social-link">Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><b>© 2025 Yagiz Daskiran</b> • Built with nostalgia and vanilla HTML/CSS/JS</p>
+                <p class="footer-note">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="" class="blink" width="8" height="8"> 
+                    Best viewed in Netscape Navigator 4.0+ or Internet Explorer 5.0+
+                </p>
+                <hr width="50%">
+                <p style="font-size: 10px; margin: 8px 0;">
+                    <a href="#home">Home</a> | <a href="#about">About</a> | <a href="#projects">Projects</a> | <a href="#blog">Blog</a> | <a href="#contact">Contact</a>
+                </p>
+                <p style="font-size: 10px; color: #666;">
+                    Last Updated: <span id="last-updated"></span><br>
+                    Page views today: <span style="color: #ff0000; font-weight: bold;">137</span>
+                </p>
+                <p style="margin-top: 10px;">
+                    <img src="data:image/gif;base64,R0lGODlhPAAYAPcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFZAAAACwAAAAAPAAYAAAI/wABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLMNuvss9BGK+201FZr7bXYZqvtttx26+234IYr7rjklmvuueimq+667Lbr7rvwxivvvPTWa++9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEcs8cQUV2zxxRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333XjnrffefPft99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvr/6q237vrrsMcu++y012777bjnrvvuvPfu++/ABy/88MQXb/zxyCev/PLMN+/889BHL/301Fdv/fXYZ6/99tx37/334Icv/vjkl2/++einr/767Lfv/vvwxy///PTXb//9+Oev//789+///wAMoAAHSMACGvCACEygAhfIwAY68IEQjKAEJ0jBClrwghjMoAY3yMEOevCDIAyhCEdIwhKa8IQoTKEKV8jCFrrwhTCMoQxnSMMa2vCGOMyhDnfIwx768IdADKIQh0jEIhrxiEhMohKXyMQmOvGJUIyiFKdIxSpa8YpYzKIWt8jFLnrxi2AMoxjHSMYymvGMaEyjGtfIxja68Y1wjKMc50jHOv8COtCBE3SgBS+IQQ168IMarKAHN0hCEp4QhSxs4Qtn2MIYxvCF/wMgDGdIQxrW8Ic2vCEOeejDHwJRiEI04hGRmMQlNrGJT4xiFK9IxStmMYtc7GIYv0jGMp4xjWts4xvnWMc89vGPgQykIAdJyEIa8pCITKQiF8nIRjrykZCMpCQnSclKWvKSmMykJjfJyU568pOgDKUoR0nKUprylKhMpSpXycpWuvKVsIylLGdJy1ra8pa4zKUud8nLXvryl8AMpjCHScxiGvOYyEymMpfJzGY685nQjKY0p0nNalrzmt/M5ja3yc1uevOb4AynOMdJznKa85zolOc87UnPetqznuqs5z3xmc99/vOfOczgPwEK0HgGVKAELWhB/WnQgx4UoQpdaEL3edCEMrSfC3VoQx/60HpGdKL9rOhFMRrRi/4zpBsVaUg5OlKSnpSkKTVpSlW6Upa21KUufSlMYyrTmdK0pja9KU5zqtOd8rSnPv2pT4Eq1KEGlagPdSlSiyrgpTrVqU+FqlSlSuCpWvWqWM2qVrfK1a569atgDatYx0rWspr1rGhNq1rXyta2uvWtcI2rXOdK17ra9a54zate98rXvvr1r4ANrGAHS9jCGvawiE2sYhfL2MY69rGQjaxkJ0vZylr2spjNrGY3y9nOevaz/6ANrWhHS9rSmva0qE2talfL2ta69rWwja1sZ0vb2tr2tri9bW53y9ve+va3wA2ucIdL3OIa97jITa5yl8vc5jr3udCNrnSna13rWve62M2udrfL3e5697vgDa94x0ve8pr3vOhNr3rXy972uve98I2vfOdL3/ra9774za9++8vf/vr3vwAOsIAHTOACG/jACE6wghfM4AY7+MEQjrCEJ0zhClv4whjOsIY3zOEOe/jDIA6xiEc84u4BBAAA7" alt="Get Firefox" style="max-width: 60px;">
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
