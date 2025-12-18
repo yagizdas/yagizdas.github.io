@@ -131,25 +131,29 @@ function initNavigation() {
    ======================================== */
 function initVisitorCounter() {
     const counter = document.getElementById('visitor-count');
-    const targetNumber = 42; // You can make this dynamic
-    let currentNumber = 0;
     
-    // Animate counter on page load
-    const interval = setInterval(() => {
-        if (currentNumber < targetNumber) {
-            currentNumber++;
-            counter.textContent = String(currentNumber).padStart(6, '0');
-        } else {
-            clearInterval(interval);
-        }
-    }, 50);
-    
-    // Add random increment every 30 seconds (simulating new visitors)
-    setInterval(() => {
-        const current = parseInt(counter.textContent);
-        const newCount = current + Math.floor(Math.random() * 3) + 1;
-        counter.textContent = String(newCount).padStart(6, '0');
-    }, 30000);
+    // Fetch real visitor count from CountAPI
+    fetch('https://api.countapi.xyz/hit/yagizdas.github.io/visits')
+        .then(response => response.json())
+        .then(data => {
+            const targetNumber = data.value;
+            let currentNumber = 0;
+            
+            // Animate counter to the real value
+            const interval = setInterval(() => {
+                if (currentNumber < targetNumber) {
+                    currentNumber++;
+                    counter.textContent = String(currentNumber).padStart(6, '0');
+                } else {
+                    clearInterval(interval);
+                }
+            }, 50);
+        })
+        .catch(error => {
+            console.error('Error fetching visitor count:', error);
+            // Fallback to a default display if API fails
+            counter.textContent = '000042';
+        });
 }
 
 /* ========================================
