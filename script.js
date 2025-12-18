@@ -230,11 +230,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (winampButtons.length > 0 && audio) {
         const songs = [
-            { title: '♪ Coding Playlist - Lo-Fi Beats ♪', src: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' },
+            { title: '♪ Stone Groove - Big Bud ♪', src: 'assets/big_bud-Stone_Groove.mp3' },
             { title: '♪ Anasickmodular - Floating Points ♪', src: 'assets/Floating Points-Anasickmodular.mp3' },
             { title: '♪ My Little Brown Book - John Coltrane ♪', src: 'assets/Duke_Ellington_John_Coltrane-MyLittleBrownBook.mp3' },
-            { title: '♪ Dial-up Connection.mp3 ♪', src: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' },
-            { title: '♪ Windows XP Startup.wav ♪', src: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' }
+            { title: '♪ Ne Ola Yar Ola - Barış Manço ♪', src: 'assets/baris_manco-Ne_Ola_Yar_Ola.mp3' },
+            { title: '♪ Saint Pablo - Kanye West ♪', src: 'assets/kanye-west_saint-pablo.mp3' }
         ];
         
         let currentSong = 0;
