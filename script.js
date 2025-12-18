@@ -194,9 +194,24 @@ function handleSubmit(event) {
         return false;
     }
     
-    // Success message
-    alert('Message sent successfully!\n\n(Not really, this is a demo site lol)');
-    form.reset();
+    // Submit form via AJAX to avoid page reload
+    var formData = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            alert('Message sent successfully! Thank you for reaching out.');
+            form.reset();
+        } else {
+            alert('Oops! There was a problem sending your message. Please try again.');
+        }
+    }).catch(error => {
+        alert('Oops! There was a problem sending your message. Please try again.');
+    });
     
     return false;
 }
@@ -206,48 +221,58 @@ function isValidEmail(email) {
 }
 
 /* ========================================
-   Winamp Player Controls (Just for fun)
+   Winamp Player Controls (Now with real audio!)
    ======================================== */
 document.addEventListener('DOMContentLoaded', function() {
     const winampButtons = document.querySelectorAll('.winamp-btn');
     const winampDisplay = document.querySelector('.winamp-display marquee');
+    const audio = document.getElementById('winamp-audio');
     
-    if (winampButtons.length > 0) {
+    if (winampButtons.length > 0 && audio) {
         const songs = [
-            '♪ Coding Playlist - Lo-Fi Beats ♪',
-            '♪ Darude - Sandstorm ♪',
-            '♪ MIDI Music - Track 001 ♪',
-            '♪ Dial-up Connection.mp3 ♪',
-            '♪ Windows XP Startup.wav ♪'
+            { title: '♪ Coding Playlist - Lo-Fi Beats ♪', src: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' },
+            { title: '♪ Anasickmodular - Floating Points ♪', src: 'assets/Floating Points-Anasickmodular.mp3' },
+            { title: '♪ My Little Brown Book - John Coltrane ♪', src: 'assets/Duke_Ellington_John_Coltrane-MyLittleBrownBook.mp3' },
+            { title: '♪ Dial-up Connection.mp3 ♪', src: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' },
+            { title: '♪ Windows XP Startup.wav ♪', src: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' }
         ];
         
         let currentSong = 0;
-        let isPlaying = true;
+        let isPlaying = false;
         
-        winampButtons.forEach((btn, index) => {
+        // Load initial song
+        loadSong(currentSong);
+        
+        winampButtons.forEach((btn) => {
             btn.addEventListener('click', function() {
-                switch(index) {
-                    case 0: // Previous
+                const action = this.getAttribute('data-action');
+                
+                switch(action) {
+                    case 'prev':
                         currentSong = (currentSong - 1 + songs.length) % songs.length;
-                        updateDisplay();
+                        loadSong(currentSong);
+                        if (isPlaying) audio.play();
                         break;
-                    case 1: // Play
+                    case 'play':
+                        audio.play();
                         isPlaying = true;
-                        winampDisplay.start();
+                        if (winampDisplay) winampDisplay.start();
                         break;
-                    case 2: // Pause
+                    case 'pause':
+                        audio.pause();
                         isPlaying = false;
-                        winampDisplay.stop();
+                        if (winampDisplay) winampDisplay.stop();
                         break;
-                    case 3: // Stop
+                    case 'stop':
+                        audio.pause();
+                        audio.currentTime = 0;
                         isPlaying = false;
-                        winampDisplay.stop();
-                        currentSong = 0;
-                        updateDisplay();
+                        if (winampDisplay) winampDisplay.stop();
                         break;
-                    case 4: // Next
+                    case 'next':
                         currentSong = (currentSong + 1) % songs.length;
-                        updateDisplay();
+                        loadSong(currentSong);
+                        if (isPlaying) audio.play();
                         break;
                 }
                 
@@ -259,14 +284,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        function updateDisplay() {
+        function loadSong(index) {
+            audio.src = songs[index].src;
+            audio.load(); // Force reload of the audio element
             if (winampDisplay) {
-                winampDisplay.textContent = songs[currentSong];
-                if (isPlaying) {
-                    winampDisplay.start();
-                }
+                winampDisplay.textContent = songs[index].title;
             }
         }
+        
+        // Add error handling for audio loading
+        audio.addEventListener('error', function(e) {
+            console.log('Audio loading error:', e);
+            alert('Could not load audio file. Check the file path and format.');
+        });
+        
+        audio.addEventListener('canplay', function() {
+            console.log('Audio loaded successfully');
+        });
+        
+        // Update play state when audio ends
+        audio.addEventListener('ended', function() {
+            isPlaying = false;
+            if (winampDisplay) winampDisplay.stop();
+        });
     }
 });
 
