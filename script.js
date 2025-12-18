@@ -133,7 +133,7 @@ function initVisitorCounter() {
     const counter = document.getElementById('visitor-count');
     
     // Fetch real visitor count from GoatCounter
-    fetch('https://yagizdas.goatcounter.com/counter//.json')
+    fetch('https://yagizdas.goatcounter.com/counter/.json')
         .then(response => response.json())
         .then(data => {
             // GoatCounter returns total count in the count field
