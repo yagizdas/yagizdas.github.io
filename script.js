@@ -132,11 +132,12 @@ function initNavigation() {
 function initVisitorCounter() {
     const counter = document.getElementById('visitor-count');
     
-    // Fetch real visitor count from CountAPI
-    fetch('https://api.countapi.xyz/hit/yagizdas.github.io/visits')
+    // Fetch real visitor count from GoatCounter
+    fetch('https://yagizdas.goatcounter.com/counter//.json')
         .then(response => response.json())
         .then(data => {
-            const targetNumber = data.value;
+            // GoatCounter returns total count in the count field
+            const targetNumber = data.count || 42;
             let currentNumber = 0;
             
             // Animate counter to the real value
