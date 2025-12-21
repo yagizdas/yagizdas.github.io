@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initVisitorCounter();
     initScrollEffects();
     updateTimestamp();
+    initGuestbook();
 });
 
 // Update last updated timestamp
@@ -20,6 +21,40 @@ function updateTimestamp() {
         var dateStr = now.getMonth() + 1 + '/' + now.getDate() + '/' + now.getFullYear();
         timestampElement.textContent = dateStr;
     }
+}
+
+// Guestbook functionality
+function initGuestbook() {
+    const guestbookBtn = document.getElementById('guestbook-btn');
+    if (guestbookBtn) {
+        guestbookBtn.addEventListener('click', function() {
+            showNotification('Thank you for signing!');
+        });
+    }
+}
+
+// Show notification
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Trigger animation
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
 }
 
 /* ========================================
@@ -370,7 +405,7 @@ document.addEventListener('DOMContentLoaded', function() {
         counter.addEventListener('dblclick', function() {
             const randomNum = Math.floor(Math.random() * 999999);
             this.textContent = String(randomNum).padStart(6, '0');
-            alert('Counter randomized! (Totally legit visitors, I swear)');
+            alert('Counter randomized! (Totally legit visitors :P)');
         });
     }
 });
@@ -383,4 +418,4 @@ console.log('%cIf you can read this, you are a TRUE HACKER', 'font-size: 12px; c
 console.log('%cThis site was built with 100% pure HTML, CSS, and JavaScript!', 'font-size: 11px; color: #000;');
 console.log('%cNo fancy frameworks. No build tools. Just raw code.', 'font-size: 11px; color: #000;');
 console.log('%c\nPSSST... Try the Konami Code: UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A', 'font-size: 10px; color: #ff0000; font-style: italic;');
-console.log('%c\nMade with <3 in 2025 but styled like 2008', 'font-size: 10px; color: #666;');
+/* ======================================== */

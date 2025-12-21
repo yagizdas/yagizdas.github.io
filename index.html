@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yagiz's Personal Homepage - Welcome!</title>
+    <title>Yagiz's Space</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///38AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAH8AAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA////////////////////////////////////////////////////////////AAAA/wAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAB/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAH8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
-</head>
+    <link rel="icon" type="image/x-icon" href="assets/pngegg.ico">
 <body>
     <!-- Starfield background canvas -->
     <canvas id="starfield"></canvas>
@@ -17,8 +16,8 @@
         <header class="header-bar">
             <div class="header-content">
                 <marquee behavior="alternate" scrollamount="5"><h1>Welcome to Yagiz's Homepage</h1></marquee>
-                <p style="font-size: 11px; color: #000;">~ Est. 2025 ~</p>
-                <img src="data:image/gif;base64,R0lGODlhPAAYAPcAAAAAAAAAMwAAZgAAmQAAzAAA/wArAAArMwArZgArmQArzAAr/wBVAABVMwBVZgBVmQBVzABV/wCAAACAMwCAZgCAmQCAzACA/wCqAACqMwCqZgCqmQCqzACq/wDVAADVMwDVZgDVmQDVzADV/wD/AAD/MwD/ZgD/mQD/zAD//zMAADMAMzMAZjMAmTMAzDMA/zMrADMrMzMrZjMrmTMrzDMr/zNVADNVMzNVZjNVmTNVzDNV/zOAADOAMzOAZjOAmTOAzDOA/zOqADOqMzOqZjOqmTOqzDOq/zPVADPVMzPVZjPVmTPVzDPV/zP/ADP/MzP/ZjP/mTP/zDP//2YAAGYAM2YAZmYAmWYAzGYA/2YrAGYrM2YrZmYrmWYrzGYr/2ZVAGZVM2ZVZmZVmWZVzGZV/2aAAGaAM2aAZmaAmWaAzGaA/2aqAGaqM2aqZmaqmWaqzGaq/2bVAGbVM2bVZmbVmWbVzGbV/2b/AGb/M2b/Zmb/mWb/zGb//5kAAJkAM5kAZpkAmZkAzJkA/5krAJkrM5krZpkrmZkrzJkr/5lVAJlVM5lVZplVmZlVzJlV/5mAAJmAM5mAZpmAmZmAzJmA/5mqAJmqM5mqZpmqmZmqzJmq/5nVAJnVM5nVZpnVmZnVzJnV/5n/AJn/M5n/Zpn/mZn/zJn//8wAAMwAM8wAZswAmcwAzMwA/8wrAMwrM8wrZswrmcwrzMwr/8xVAMxVM8xVZsxVmcxVzMxV/8yAAMyAM8yAZsyAmcyAzMyA/8yqAMyqM8yqZsyqmcyqzMyq/8zVAMzVM8zVZszVmczVzMzV/8z/AMz/M8z/Zsz/mcz/zMz///8AAP8AM/8AZv8Amf8AzP8A//8rAP8rM/8rZv8rmf8rzP8r//9VAP9VM/9VZv9Vmf9VzP9V//+AAP+AM/+AZv+Amf+AzP+A//+qAP+qM/+qZv+qmf+qzP+q///VAP/VM//VZv/Vmf/VzP/V////AP//M///Zv//mf//zP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFZAAAACwAAAAAPAAYAAAI/wABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMYq66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLMNuvss9BGK+201FZr7bXYZqvtttx26+234IYr7rjklmvuueimq+667Lbr7rvwxivvvPTWa++9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEcs8cQUV2zxxRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333XjnrffefPft99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvr/6q237vrrsMcu++y012777bjnrvvuvPfu++/ABy/88MQXb/zxyCev/PLMN+/889BHL/301Fdv/fXYZ6/99tx37/334Icv/vjkl2/++einr/767Lfv/vvwxy///PTXb//9+Oev//789+///wAMoAAHSMACGvCACEygAhfIwAY68IEQjKAEJ0jBClrwghjMoAY3yMEOevCDIAyhCEdIwhKa8IQoTKEKV8jCFrrwhTCMoQxnSMMa2vCGOMyhDnfIwx768IdADKIQh0jEIhrxiEhMohKXyMQmOvGJUIyiFKdIxSpa8YpYzKIWt8jFLnrxi2AMoxjHSMYymvGMaEyjGtfIxja68Y1wjKMc50jHOv8COtCBE3SgBS+IQQ168IMarKAHN0hCEp4QhSxs4Qtn2MIYxvCF/wMgDGdIQxrW8Ic2vCEOeejDHwJRiEI04hGRmMQlNrGJT4xiFK9IxStmMYtc7GIYv0jGMp4xjWts4xvnWMc89vGPgQykIAdJyEIa8pCITKQiF8nIRjrykZCMpCQnSclKWvKSmMykJjfJyU568pOgDKUoR0nKUprylKhMpSpXycpWuvKVsIylLGdJy1ra8pa4zKUud8nLXvryl8AMpjCHScxiGvOYyEymMpfJzGY685nQjKY0p0nNalrzmt/M5ja3yc1uevOb4AynOMdJznKa85zolOc87UnPetqznuqs5z3xmc99/vOfOczgPwEK0HgGVKAELWhB/WnQgx4UoQpdaEL3edCEMrSfC3VoQx/60HpGdKL9rOhFMRrRi/4zpBsVaUg5OlKSnpSkKTVpSlW6Upa21KUufSlMYyrTmdK0pja9KU5zqtOd8rSnPv2pT4Eq1KEGlagPdSlSiyrgpTrVqU+FqlSlSuCpWvWqWM2qVrfK1a569atgDatYx0rWspr1rGhNq1rXyta2uvWtcI2rXOdK17ra9a54zate98rXvvr1r4ANrGAHS9jCGvawiE2sYhfL2MY69rGQjaxkJ0vZylr2spjNrGY3y9nOevaz/6ANrWhHS9rSmva0qE2talfL2ta69rWwja1sZ0vb2tr2tri9bW53y9ve+va3wA2ucIdL3OIa97jITa5yl8vc5jr3udCNrnSna13rWve62M2udrfL3e5697vgDa94x0ve8pr3vOhNr3rXy972uve98I2vfOdL3/ra9774za9++8vf/vr3vwAOsIAHTOACG/jACE6wghfM4AY7+MEQjrCEJ0zhClv4whjOsIY3zOEOe/jDIA6xiEc84u4BBAAA7") alt="Under Construction" style="max-width: 60px; margin: 5px auto; display: block;">
+                <p style="font-size: 11px; color: #000; margin-bottom: 10px;">~ Est. 2025 ~</p>
+                
                 <div class="visitor-counter">
                     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="counter" class="blink" width="10" height="10">
                     <span id="visitor-count">000042</span> visitors
@@ -106,8 +105,7 @@
                     <h3 class="widget-title">Guestbook</h3>
                     <div class="widget-content">
                         <p style="font-size: 12px;">Sign my guestbook!</p>
-                        <button class="btn" style="width: 100%; margin-top: 5px; font-size: 11px;">Sign Here</button>
-                        <p style="font-size: 10px; margin-top: 8px; color: #666;">Latest: "Cool site!" - John</p>
+                        <button id="guestbook-btn" class="btn" style="width: 100%; margin-top: 5px; font-size: 11px;">Sign Here</button>
                     </div>
                 </div>
             </aside>
@@ -131,7 +129,7 @@
                                 <marquee scrollamount="3" width="80%">*** NEW CONTENT ADDED SOMETIMES *** CHECK BACK OFTEN ***</marquee>
                             </center>
                             <p>Welcome to my personal website! I'm Yagiz, I live in Istanbul, and I am  currently a senior year Electronics and Communications Engineering (basically EE :D) student at Istanbul Technical University. I am working on AI/ML and Cloud technologies. I love solving problems.</p>
-                            <p>This site is a throwback to when websites had a bit more personality. You can look around, play some music, or find some information about me.</p>
+                            <p>This site is a throwback to when websites had a bit more to offer than AI-generated gradients. You can look around, play some music, or find some information about me.</p>
                             <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTVnbThiMDRuemM3aTl6eWVoeWpzNmgyNjg4NW0wbXRtN3hsdGozdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/4rzPndVchEPPdyPdNZ/giphy.gif" alt="Animated GIF" style="width: 150px; height: auto; display: block; margin: 0 auto;">
                             <table border="2" cellpadding="8" cellspacing="0" width="100%" bgcolor="#ffffe0" style="margin: 15px 0;">
                                 <tr>
@@ -264,10 +262,9 @@
                             <div class="project-card">
                                 <h3>SAME: Satellite and Aerial Mapping Engine</h3>
                                 <p class="project-meta">ML Project • 2024</p>
-                                <p>RESTful API with a focus on simplicity and developer experience. Documentation styled like old-school tech manuals.</p>
+                                <p>A modular CNN-based and YOLO-inspired satellite and aerial image mapping tool designed for environmental monitoring and urban planning. Implemented Deep Transfer Learning across models such as ResNet-50/101, RegNet and ConvNeXt. Curated a custom dataset through numerous geospatial datasets. </p>
                                 <div class="project-links">
-                                    <a href="#" class="btn">Documentation</a>
-                                    <a href="#" class="btn">Source Code</a>
+                                    <a href="https://github.com/yagizdas/SAME" class="btn">Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -299,11 +296,8 @@
                             </div>
 
                             <div class="project-card">
-                                <h3>IELTS Academic - 8.0</h3>
+                                <h3>IELTS Academic - 8.0 (Advanced)</h3>
                                 <p class="project-meta">2025 - Valid Until 2027</p>
-                                <div class="project-links">
-                                    <a href="https://www.linkedin.com/company/itu-biobee/" class="btn">Learn More</a>
-                                </div>
                             </div>
                         </div>
                         
