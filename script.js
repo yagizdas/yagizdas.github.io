@@ -9,19 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initVisitorCounter();
     initScrollEffects();
-    updateTimestamp();
     initGuestbook();
 });
-
-// Update last updated timestamp
-function updateTimestamp() {
-    var timestampElement = document.getElementById('last-updated');
-    if (timestampElement) {
-        var now = new Date();
-        var dateStr = now.getMonth() + 1 + '/' + now.getDate() + '/' + now.getFullYear();
-        timestampElement.textContent = dateStr;
-    }
-}
 
 // Guestbook functionality
 function initGuestbook() {
